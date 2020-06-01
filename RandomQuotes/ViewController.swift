@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func generateQuoteBtn(_ sender: Any) {
-        
+        getQuotes()
     }
     
     @IBAction func openSafariDonateBtn(_ sender: Any) {
@@ -32,6 +32,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getQuotes()
+    }
+    
+    func getQuotes(){
         let urlString = "https://type.fit/api/quotes"
         guard let url = URL(string: urlString) else { return }
         
@@ -54,7 +58,6 @@ class ViewController: UIViewController {
             }
         }.resume()
     }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
